@@ -1,4 +1,4 @@
-import { SUCCESSFUL_LOGIN, FAILED_LOGIN, LOGOUT } from "../types";
+import { SUCCESSFUL_LOGIN, FAILED_LOGIN, LOGOUT, UPLOAD_DATA_USER_FAILED } from "../types";
 
 
 
@@ -19,13 +19,27 @@ export default function (state = initialState,action){
             return{
                 ...state,
                 token:payload.token,
-                user:payload.user
+                user: payload.user,
+                error:payload,
             }
         case FAILED_LOGIN:
             localStorage.removeItem('token')
 
             return{
                 token:null,
+                user: {},
+                error:payload
+            }
+        case UPLOAD_DATA_USER:
+
+            return {
+                ...state,
+                user:payload.data
+            }
+        case UPLOAD_DATA_USER_FAILED:
+
+            return {
+                ...state,
                 user:{}
             }
         case LOGOUT:
