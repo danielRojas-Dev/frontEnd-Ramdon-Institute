@@ -1,15 +1,9 @@
-import Navbar from './components/Navbar'
-import Sidbar from './components/Sidbar'
+import {Browser} from "./components/Browser"
 
 function App() {
 
 
-  return (
-    <>
-    <Navbar/>
-    <Sidbar/>
-    </>
-  )
+  return <Browser/>
 }
 
 export default App
