@@ -1,4 +1,4 @@
-import { REQUEST_LOGIN,SUCCESSFUL_LOGIN, FAILED_LOGIN, LOGOUT, } from "../types";
+import { REQUEST_LOGIN,SUCCESSFUL_LOGIN, FAILED_LOGIN, LOGOUT, CARGAR_DATOS_USUARIO_REQUEST, CARGAR_DATOS_USUARIO_EXITOSO, CARGAR_DATOS_USUARIO_FALLIDO, } from "../types";
 
 
 
@@ -40,18 +40,24 @@ export default function (state = initialState,action){
                 user: {},
                 error:payload
             }
-        // case UPLOAD_DATA_USER:
+        case CARGAR_DATOS_USUARIO_REQUEST:
 
-        //     return {
-        //         ...state,
-        //         user:payload.data
-        //     }
-        // case UPLOAD_DATA_USER_FAILED:
+            return {
+                ...state,
+                user:{}
+            }
+        case CARGAR_DATOS_USUARIO_EXITOSO:
 
-        //     return {
-        //         ...state,
-        //         user:{}
-        //     }
+            return {
+                ...state,
+                user:payload.data
+            }
+        case CARGAR_DATOS_USUARIO_FALLIDO:
+
+            return {
+                ...state,
+                user:{}
+            }
         case LOGOUT:
             localStorage.removeItem('token')
             
@@ -61,6 +67,11 @@ export default function (state = initialState,action){
                 token:null,
                 user:{},
                 error:[]
+            }
+
+        default:
+            return {
+                ...state
             }
     }
 
