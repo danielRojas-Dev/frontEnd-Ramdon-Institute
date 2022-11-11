@@ -3,7 +3,7 @@ import {Browser} from "./components/Browser"
 function App() {
 
 
-  return <Browser/>
+  return (<Browser/>)
 }
 
 export default App

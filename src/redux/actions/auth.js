@@ -1,8 +1,15 @@
 import { url } from "../../helpers/url";
-import { SUCCESSFUL_LOGIN, FAILED_LOGIN, LOGOUT, UPLOAD_DATA_USER_FAILED } from "../types";
+import {REQUEST_LOGIN, SUCCESSFUL_LOGIN, FAILED_LOGIN, LOGOUT } from "../types";
 
 
 
+
+export const fetchRequestLogin = ()=>{
+
+    return {
+        type:REQUEST_LOGIN
+    }
+}
 
 export const fetchSuccessfulAuth = (token, user) => {
 
@@ -28,6 +35,9 @@ export const login = (paramUser, paramPass) => {
     return async (dispatch) => {
         try {
         
+            dispatch(fetchRequestLogin);
+
+            
             const response = await fetch(`${url}/login`, {
                 method: "POST",
                 body: JSON.stringify({
@@ -41,9 +51,9 @@ export const login = (paramUser, paramPass) => {
 
             const result = await response.json()
 
-            // if () {
+            if () {
                 
-            // }
+            }
 
         } catch (error) {
             console.log(error);

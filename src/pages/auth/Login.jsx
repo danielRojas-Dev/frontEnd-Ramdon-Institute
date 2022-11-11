@@ -1,9 +1,19 @@
 import React from 'react'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Login = () => {
+  
+  const {token, error} =  useSelector((state)=>{state.auth})
+  const dispatch =  useDispatch();
+
+  const [userName, setUserName] = useState()
+  const [userPassword, setPassword] = useState()
+  
+  console.log(userName);
+  
   return (
     <>
-    
   <main>
   <div className="container">
 
@@ -24,38 +34,25 @@ const Login = () => {
               <div className="card-body">
 
                 <div className="pt-4 pb-2">
-                  <h5 className="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                  <p className="text-center small">Enter your username & password to login</p>
+                 <h5 className="card-title text-center pb-0 fs-4"> <b>INICIO DE SESION</b></h5>
                 </div>
 
-                <form className="row g-3 needs-validation" novalidate>
+                <form className="row g-3 needs-validation" >
 
                   <div className="col-12">
-                    <label for="yourUsername" className="form-label">Username</label>
+                    <label htmlFor="yourUsername" className="form-label">Nombre de Usuario</label>
                     <div className="input-group has-validation">
-                      <span className="input-group-text" id="inputGroupPrepend">@</span>
-                      <input type="text" name="username" className="form-control" id="yourUsername" required/>
-                      <div className="invalid-feedback">Please enter your username.</div>
+                      <span className="input-group-text" id="inputGroupPrepend">User</span>
+                      <input type="text" name="username" onChange={e=>setUserName(e.target.value)} className="form-control" id="yourUsername" required/>
                     </div>
                   </div>
 
                   <div className="col-12">
-                    <label for="yourPassword" className="form-label">Password</label>
+                    <label htmlFor="yourPassword" className="form-label">Contraseña</label>
                     <input type="password" name="password" className="form-control" id="yourPassword" required/>
-                    <div className="invalid-feedback">Please enter your password!</div>
-                  </div>
-
-                  <div className="col-12">
-                    <div className="form-check">
-                      <input className="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe"/>
-                      <label className="form-check-label" for="rememberMe">Remember me</label>
-                    </div>
                   </div>
                   <div className="col-12">
-                    <button className="btn btn-primary w-100" type="submit">Login</button>
-                  </div>
-                  <div className="col-12">
-                    <p className="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
+                    <button className="btn btn-primary w-100" type="submit">Iniciar Sesion</button>
                   </div>
                 </form>
 
@@ -70,7 +67,7 @@ const Login = () => {
 
   </div>
 </main>
-</>
+</> 
   )
 }
 

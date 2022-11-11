@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import authenticationReducer from "./auth";
+import materiasReducer from "./materias/index"
 
 
 
@@ -8,6 +9,7 @@ import authenticationReducer from "./auth";
 export const rootReducer = combineReducers({
 
     auth: authenticationReducer,
+    materias:materiasReducer
 
 
 

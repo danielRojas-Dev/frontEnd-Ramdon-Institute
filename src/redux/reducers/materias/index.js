@@ -1,4 +1,4 @@
-import { REQUEST_LOGIN,SUCCESSFUL_LOGIN, FAILED_LOGIN, LOGOUT, } from "../types";
+import { REQUEST_LOGIN,SUCCESSFUL_LOGIN, FAILED_LOGIN, LOGOUT, } from "../../types/index";
 
 
 
