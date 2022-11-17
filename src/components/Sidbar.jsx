@@ -1,27 +1,20 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Sidbar = () => {
   return (
     <>
       <aside id="sidebar" className="sidebar">
         <ul className="sidebar-nav" id="sidebar-nav">
-       
           <li className="nav-item">
-            <a
-              className="nav-link collapsed"
-              href="#"
-            >
+            <NavLink className="nav-link collapsed" to="/materias">
               <i className="bi bi-menu-button-wide"></i>
               <span>Materias</span>
-            </a>
-       
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <a
-              className="nav-link collapsed"
-              href="#"
-            >
+            <a className="nav-link collapsed" href="#">
               <i className="bi bi-journal-text"></i>
               <span>Usuarios</span>
             </a>
@@ -40,7 +33,6 @@ const Sidbar = () => {
               <span>Asistencias</span>
             </a>
           </li>
-
 
           <li className="nav-item">
             <a className="nav-link collapsed" href="#">

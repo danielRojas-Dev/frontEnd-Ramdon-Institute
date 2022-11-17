@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -13,12 +13,17 @@ const Login = () => {
   const [userName, setUserName] = useState();
   const [userPassword, setPassword] = useState();
 
+  const divErrores = useRef();
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login(userName, userPassword));
   };
+
+  if (!Array.isArray(error)) {
+   divErrores.current.style.display = 'block'
+  }
 
   useEffect(() => {
     if (token !== null) {
@@ -96,8 +101,8 @@ const Login = () => {
                         </div>
 
                         <div className="col-12">
-                          <div className="alert alert-danger">
-                            {error}
+                          <div ref={divErrores} className="alert alert-danger" style={{display:'none'}}>
+                            {error.msg}
                           </div>
                         </div>
 
