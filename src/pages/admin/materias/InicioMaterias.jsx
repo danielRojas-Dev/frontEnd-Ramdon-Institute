@@ -1,22 +1,27 @@
-import React from 'react'
+import React from "react";
+import { Container } from "../../../components/layouts/Container";
+import { TablaMaterias } from "./TablaMaterias";
+import {getDataMaterias} from "../../../redux/actions/admin/materias/index"
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export const InicioMaterias = () => {
+  const { token} = useSelector((state) => state.auth);
+  const { materias, errores, loading } = useSelector((state) => state.materias);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getDataMaterias(token));
+    return () => {
+      // dispatch(limpiarMensajesMateria());
+    };
+  }, []);
   return (
-    <>
-    <table className="table">
-      <thead>
-        <tr>
-          <th scope="col">Descripcion Materia</th>
-          <th scope="col">Carrera</th>
-          <th scope="col">Detalle</th>
-          <th scope="col">Editar</th>
-          <th scope="col">Otras Opciones</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Container>
+      <div className="card-body">
+        <h5 className="card-title">Listado de materias</h5>
 
-      </tbody>
-    </table>
-  </>
-  )
-}
+        <TablaMaterias dataMaterias={materias}></TablaMaterias>
+      </div>
+    </Container>
+  );
+};

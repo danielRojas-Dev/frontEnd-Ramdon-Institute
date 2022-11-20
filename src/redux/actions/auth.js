@@ -1,35 +1,10 @@
 import { url } from "../../helpers/url";
 import {
-  REQUEST_LOGIN,
-  SUCCESSFUL_LOGIN,
-  FAILED_LOGIN,
-  LOGOUT,
-  CARGAR_DATOS_USUARIO_REQUEST,
-  CARGAR_DATOS_USUARIO_EXITOSO,
-} from "../types";
+  LOGOUT
+} from "../types/index";
+import {fetchRequestLogin, fetchFailedAuth, fetchSuccessfulAuth, cargarDatosUsuarioRequest, cargarDatosUsuarioExitoso, cargarDatosUsuarioFallido} from "../services/administrador/auth/auth"
 
-export const fetchRequestLogin = () => {
-  return {
-    type: REQUEST_LOGIN,
-  };
-};
 
-export const fetchSuccessfulAuth = (token, user) => {
-  return {
-    type: SUCCESSFUL_LOGIN,
-    payload: {
-      token,
-      user,
-    },
-  };
-};
-
-export const fetchFailedAuth = (error) => {
-  return {
-    type: FAILED_LOGIN,
-    payload: error,
-  };
-};
 
 export const login = (paramUser, paramPass) => {
   return async (dispatch) => {
@@ -63,24 +38,6 @@ export const login = (paramUser, paramPass) => {
   };
 };
 
-export const cargarDatosUsuarioRequest = () => {
-  return {
-    type: CARGAR_DATOS_USUARIO_REQUEST,
-  };
-};
-
-export const cargarDatosUsuarioExitoso = (user) => {
-  return {
-    type: CARGAR_DATOS_USUARIO_EXITOSO,
-    payload: user,
-  };
-};
-
-export const cargarDatosUsuariofallido = () => {
-  return {
-    type: CARGAR_DATOS_USUARIO_REQUEST,
-  };
-};
 
 export const cargarDatosUsuario = (token) => {
   // console.log(token);
@@ -113,9 +70,6 @@ export const cerrarSesion = (dispatch) => {
   dispatch({
     type: LOGOUT,
   });
-  // dispatch({
-  //   type: BORRAR_DATOS_USUARIO,
-  // });
 
   // dispatch(limpiarMensajesAvisos());
   // dispatch(limpiarMensajesCarreras());

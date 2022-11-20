@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Login from "../pages/auth/Login";
 import { cargarDatosUsuario } from "../redux/actions/auth";
-import Home from "./administrador/Home";
+import Home from "../pages/admin/Home";
 import { InicioMaterias } from "../pages/admin/materias/InicioMaterias";
 
 

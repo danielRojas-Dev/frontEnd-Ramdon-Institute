@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cerrarSesion } from "../redux/actions/auth";
 
+
 const Navbar = () => {
 
   const dataUser =  useSelector((state)=>state.auth.user)
