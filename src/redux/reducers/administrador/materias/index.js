@@ -8,6 +8,13 @@ import {
   PUT_MATERIA_EXITOSO,
   PUT_MATERIA_FALLIDO,
   PUT_MATERIA_REQUEST,
+  ACTIVAR_MATERIA_REQUEST,
+  ACTIVAR_MATERIA_EXITOSO,
+  ACTIVAR_MATERIA_FALLIDO,
+  DESACTIVAR_MATERIA_REQUEST,
+  DESACTIVAR_MATERIA_EXITOSO,
+  DESACTIVAR_MATERIA_FALLIDO,
+  ELIMINAR_STATE_MATERIAS
 } from "../../../types/index";
 
 const initialState = {
@@ -48,7 +55,7 @@ export default function (state = initialState, action) {
       };
     case POST_MATERIA_EXITOSO:
       return {
-        ...state,        
+        ...state,
         loading: false,
         errores: [],
       };
@@ -58,25 +65,64 @@ export default function (state = initialState, action) {
         loading: false,
         errores: payload,
       };
-      case PUT_MATERIA_REQUEST:
-        return {
-          ...state,
-          loading: true,
-          errores: [],
-        };
-      case PUT_MATERIA_EXITOSO:
-        return {
-          ...state,        
-          loading: false,
-          errores: [],
-        };
-      case PUT_MATERIA_FALLIDO:
-        return {
-          ...state,
-          loading: false,
-          errores: payload,
-        };
-        default:
-          return {...state}
+    case PUT_MATERIA_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        errores: [],
+      };
+    case PUT_MATERIA_EXITOSO:
+      return {
+        ...state,
+        loading: false,
+        errores: [],
+      };
+    case PUT_MATERIA_FALLIDO:
+      return {
+        ...state,
+        loading: false,
+        errores: payload,
+      };
+    case ACTIVAR_MATERIA_REQUEST:
+      return {
+        ...state,
+        loadingMaterias: true,
+      };
+
+    case ACTIVAR_MATERIA_EXITOSO:
+      return {
+        ...state,
+        loading: false,
+      };
+    case ACTIVAR_MATERIA_FALLIDO:
+      return {
+        ...state,
+        loading: false,
+        errores: payload,
+      };
+
+    case DESACTIVAR_MATERIA_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case DESACTIVAR_MATERIA_EXITOSO:
+      return {
+        ...state,
+        loading: false,
+      };
+    case DESACTIVAR_MATERIA_FALLIDO:
+      return {
+        ...state,
+        loading: false,
+        errores: [],
+      };
+    case ELIMINAR_STATE_MATERIAS:
+      return {
+        ...initialState,
+      };
+    default:
+      return state;
   }
 }

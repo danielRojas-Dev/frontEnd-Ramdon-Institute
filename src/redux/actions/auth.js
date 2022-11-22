@@ -3,6 +3,7 @@ import {
   LOGOUT
 } from "../types/index";
 import {fetchRequestLogin, fetchFailedAuth, fetchSuccessfulAuth, cargarDatosUsuarioRequest, cargarDatosUsuarioExitoso, cargarDatosUsuarioFallido} from "../services/administrador/auth/auth"
+import { eliminarStateMateria } from "../services/administrador/materias";
 
 
 
@@ -71,14 +72,6 @@ export const cerrarSesion = (dispatch) => {
     type: LOGOUT,
   });
 
-  // dispatch(limpiarMensajesAvisos());
-  // dispatch(limpiarMensajesCarreras());
-  // dispatch(limpiarMensajesMateria());
-  // dispatch(limpiarMensajesUsuarios());
-  // dispatch(limpiarMensajesDocumentosAlumno());
-  // dispatch(limpiarMensajesHorariosAlumno());
-  // dispatch(limpiarMensajesInasistencias());
-  // dispatch(limpiarMensajesNotasAlumno());
-  // dispatch(limpiarMensajesHorariosDocente());
-  // dispatch(limpiarMensajesNotasDocente());
+  dispatch(eliminarStateMateria());
+
 };

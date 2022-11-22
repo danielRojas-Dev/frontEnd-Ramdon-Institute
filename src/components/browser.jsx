@@ -5,6 +5,9 @@ import Login from "../pages/auth/Login";
 import { cargarDatosUsuario } from "../redux/actions/auth";
 import Home from "../pages/admin/Home";
 import { InicioMaterias } from "../pages/admin/materias/InicioMaterias";
+import { DetalleMateria } from "../pages/admin/materias/DetalleMateria";
+import { FormNuevaMateria } from "../pages/admin/materias/FormNuevaMateria";
+import { FormEditarMateria } from "../pages/admin/materias/FormEditarMateria";
 
 
 
@@ -13,9 +16,10 @@ const RoutesAdmin = () => {
     <Routes>
       <Route path="/inicioAdmin" element={<Home />} />
       <Route path="/materias" element={<InicioMaterias />} />
-      {/* // <Route path="/materias/agregar" element={<AgregarMateria />} />
-      // <Route path="/materias/editar" element={<EditarMateria />} />
-      // <Route path="/materias/detalle" element={<DetalleMateria />} />
+      <Route path="/materias/detalleMaterias" element={<DetalleMateria />} />
+      <Route path="/materias/agregar" element={<FormNuevaMateria/>}/>
+      <Route path="/materias/editar" element={<FormEditarMateria />} />
+       {/*
       // <Route path="/usuarios" element={<HomeUsuarios />} />
       // <Route path="/usuarios/agregar" element={<AgregarUsuario />} />
       // <Route path="/usuarios/editar" element={<EditarUsuario />} />
@@ -24,7 +28,7 @@ const RoutesAdmin = () => {
       // <Route path="/avisos/editar" element={<EditarAviso />} />
       // <Route path="/notas-alumnos" element={<HomeNotasAlumnos />} />
       // <Route path="/detalle-notas-docente" element={<DetalleNotasDocente />} />
-      // <Route path="/asistencias" element={<HomeAsistencias />} />  */}
+      // <Route path="/asistencias" element={<HomeAsistencias />} />   */}
 
       <Route path="*" element={<Home />} />
     </Routes>

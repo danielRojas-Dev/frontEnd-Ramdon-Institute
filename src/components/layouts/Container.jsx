@@ -9,7 +9,7 @@ export const Container = ({ children }) => {
       <Navbar />
       <Sidbar />
 
-      <main id="main" class="main">
+      <main id="main" className="main">
      
         <section className="section dashboard">
           <div className="row">
